@@ -1,8 +1,6 @@
 # React Redux Simple Implementation.
 
-### `npx create-react-app .` 
-
-### `npx create-react-app` 
+### `npx create-react-app .`
 
 ### `npm i redux react-redux`
 
