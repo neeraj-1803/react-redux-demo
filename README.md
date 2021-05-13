@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# React Redux Simple Implementation.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### `npx create-react-app .` 
 
-## Available Scripts
+### `npx create-react-app` 
 
-In the project directory, you can run:
+### `npm i redux react-redux`
 
-### `npm start`
+## Redux in a nutshell:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Instead of changing state inside each component we have a global store.
+Instead of modifying the states directly inside the component, we import the actions and dispatch the actions with payload(data) if any required.
+We use useSelectors to select the reducers from the allReducer or rootReducer.
+We use useDispatch to dispatch the action to the reducer function to change the state.
+We use createStore to create a common store using combinedReducers
+We use combinedReducers to combine the different reducers and give them a key so it can be called using that.
+We have a Provider tag that takes in the store and wraps the entire components inside React Render.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Global Store --> All actions are stored.
 
-### `npm test`
+Actions --> name/ identifier, describe what we want to do. for a function that will lead to change in state, 
+doesn't have to be real function name, 
+SO for example, in a increment counter, INCREMENT could be the action. It is a simple function that returns an object.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Reducer --> Describes how your action transforms the state to next state. When the above action is called, this will check which state to modify.
+Mostly it is a switch based on the action name. createStore()
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Dispatch --> To call the action and send it to reducer, so it checks and modifies the required state.
